@@ -1,5 +1,6 @@
 Topics to learn in Python:
   Modules/Packages - Done
+  Double Underscore functions like `__sizeof__`, `__init__`
   OOPs
   Decorators
   List comprehensions and generators instead of For Loops.
