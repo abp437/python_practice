@@ -1,4 +1,7 @@
-import math
+# The import statement for local imports goes as follows:
+# from `module_name.file_name` import `function_name`
+# I've also aliased the import here with `as`.
+from utils.validate_numbers import validate_number as validate_number_input
 
 # Constants
 CMD_STR = ">>> "
@@ -6,20 +9,6 @@ DEFAULT_PROMPT = f"Hello, please enter the number of days and I'll calculate the
 
 # In python we have to define the function before it's called.
 # There's no concept of hoisting in it, even if it's an interpreted language.
-def validate_number_input(input):
-  if isinstance(input, int): return input
-  if input.isdigit(): return int(input)
-
-  res = 0
-
-  try:
-    parsed = float(input)
-    res = math.floor(parsed)
-  except ValueError:
-    res = 0
-
-  return res
-
 def calculate_hours(days):
   day_count = validate_number_input(days)
 
@@ -50,6 +39,6 @@ def main():
     if is_blank(user_input): continue
     if is_exit_string(user_input): return
 
-    print(f"The number of hours are {calculate_hours(user_input)}\n")
+    print(f"For {user_input} days, the number of hours are {calculate_hours(user_input)}\n")
 
 main()

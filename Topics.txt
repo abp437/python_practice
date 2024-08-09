@@ -1,0 +1,7 @@
+Topics to learn in Python:
+  Modules/Packages - Done
+  OOPs
+  Decorators
+  List comprehensions and generators instead of For Loops.
+  Use virtual envs to encapsulate dependencies for different projects.
+  Use Unit tests for functions
