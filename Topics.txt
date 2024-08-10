@@ -6,3 +6,6 @@ Topics to learn in Python:
   List comprehensions and generators instead of For Loops.
   Use virtual envs to encapsulate dependencies for different projects.
   Use Unit tests for functions
+
+A great thing about Python is that we can directly see the library code with the use of `Go to definition` function of VSCode or any other Code Editor.
+It wasn't possible in JS or Ruby or Go lang for that matter.
