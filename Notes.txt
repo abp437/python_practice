@@ -1,0 +1,7 @@
+PyPI - Python Package Index is the Python equivalent of Node Package Manager(npm) for NodeJS. It contains the list of all the published packages in Python. The packages listed in PyPI can be considered as Third Party Packages developed by other developers for our usage. Some examples of packages are `numpy`, `pandas`. Any package can be installed, uninstalled using `pip`.
+`pip` is the package installer for Python. It comes built in along with Python 3.
+
+Difference between Packages and Modules:
+'Module' is a file in Python which contains a collection of functions. In Python there's no concept of public and private functions in modules. All functions are public.
+
+'Package' is a collection of modules. All the files in a package are typically placed in a single folder. The identifier of the package is `__init__.py` file from where the package initialization starts. This `__init__.py` file distinguishes a package from a regular directory. It doesn't matter even if the file is empty, it just needs to be there for distinction.
