@@ -1,8 +1,9 @@
 Topics to learn in Python:
   Modules/Packages - Done
-  Double Underscore functions like `__sizeof__`, `__init__`
+  **kwargs - Done
   OOPs
   Decorators
+  Double Underscore functions like `__sizeof__`, `__init__`
   List comprehensions and generators instead of For Loops.
   Use virtual envs to encapsulate dependencies for different projects.
   Use Unit tests for functions

@@ -5,3 +5,31 @@ Difference between Packages and Modules:
 'Module' is a file in Python which contains a collection of functions. In Python there's no concept of public and private functions in modules. All functions are public.
 
 'Package' is a collection of modules. All the files in a package are typically placed in a single folder. The identifier of the package is `__init__.py` file from where the package initialization starts. This `__init__.py` file distinguishes a package from a regular directory. It doesn't matter even if the file is empty, it just needs to be there for distinction.
+
+OOP:
+It basically answers two questions.
+What information does an object have? and What actions can an object perform?
+The convention is to have `CamelCased` class names and `snake_cased` file names for those classes.
+
+Constructor function and `self` keyword:
+  All classes must have an `__init__` function in it. That function is the constructor function of the class. The `self` parameter in the function is a reference to the current instance(object) of the class. It must be included as a parameter in every instance method of the class.
+
+Keyword Arguments (**kwargs):
+  It serves a similar purpose of variadic arguments in Golang. However, unlike Golang, in Keyword args, the args have to be named arguments. Thus, we can pass in named arguments to a function which supports it. The order in which the arguments are provided doesn't matter because those are named.
+  It can be used in functions which can have a large amount of arguments, such as constructor functions.
+  Inside the function, these arguments are available as a dictionary where the keys are the argument names, and the values are the corresponding values.
+  It thus avoids the need to pass in arguments in the form of a dictionary to the function. Because it ain't the convention, instead we pass in keyword args.
+
+  Example:
+    def describe_person(name, **kwargs):
+      print(f"Name: {name}")
+      for key, value in kwargs.items():
+          print(f"{key}: {value}")
+
+    # Usage
+    describe_person("Alice", age=30, country="USA", occupation="Engineer")
+
+Getters, Setters & Decorators:
+There's no explicit concept of getters and setters in Python classes because we can literally get and set values of a class object like we get and set values in a dictionary. So, we don't need to write any getters or setters.
+However, this approach might make our code vulnerable to unpredictable behaviors. Thus to apply validations on our setter functions we have the concept of `Property Decorators`
+Refer `oops/user.py` for the detailed implementation & documentation.
