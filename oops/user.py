@@ -1,7 +1,8 @@
 class User:
   # Constructor function
   def __init__(self, **kwargs) -> None:
-    self.name = kwargs.get('name')
+    # `or "Austin"` acts like a default value if the keyword argument isn't provided.
+    self.name = kwargs.get('name') or "Austin"
     self.age = kwargs.get('age')
 
     # Public setter access, no decorators specified, thus no validations applied.

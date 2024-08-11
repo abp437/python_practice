@@ -1,4 +1,6 @@
 from user import User
+from guitars.classic_guitar import ClassicGuitar
+from guitars.electric_guitar import ElectricGuitar
 
 try:
   user = User(
@@ -20,3 +22,10 @@ user = User(
 )
 
 user.get_user_info()
+
+classic_guitar = ClassicGuitar()
+classic_guitar.play()
+
+electric_guitar = ElectricGuitar()
+electric_guitar.play()
+electric_guitar.play_louder()

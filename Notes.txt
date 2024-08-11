@@ -10,6 +10,7 @@ OOP:
 It basically answers two questions.
 What information does an object have? and What actions can an object perform?
 The convention is to have `CamelCased` class names and `snake_cased` file names for those classes.
+Just like Ruby everything in Python is an Object.
 
 Constructor function and `self` keyword:
   All classes must have an `__init__` function in it. That function is the constructor function of the class. The `self` parameter in the function is a reference to the current instance(object) of the class. It must be included as a parameter in every instance method of the class.
@@ -33,3 +34,73 @@ Getters, Setters & Decorators:
 There's no explicit concept of getters and setters in Python classes because we can literally get and set values of a class object like we get and set values in a dictionary. So, we don't need to write any getters or setters.
 However, this approach might make our code vulnerable to unpredictable behaviors. Thus to apply validations on our setter functions we have the concept of `Property Decorators`
 Refer `oops/user.py` for the detailed implementation & documentation.
+
+Public, Protected and Private access:
+In Python, there are no explicit `private` or `protected` keywords like in some other object-oriented languages (such as private and protected in Ruby, Java or C++). Python's approach emphasizes readability and programmer responsibility over strict enforcement of access control. Instead, Python uses naming conventions to indicate the intended visibility of class attributes and methods:
+
+  Public:
+    Attributes and methods without any leading underscores are considered public and can be accessed from outside the class.
+
+  Protected:
+    Attributes and methods with a single leading underscore (e.g., _attribute) are meant to be protected. This is a convention indicating that these members are intended for internal use within the class or its subclasses and should not be accessed directly from outside the class. However, it's just a convention and doesn't enforce access control.
+
+  Private:
+    Attributes and methods with double leading underscores (e.g., __attribute) are intended to be private to the class. This triggers name mangling, where the interpreter changes the name of the attribute to include the class name, which helps avoid accidental name collisions in subclasses. However, this does not completely prevent access but makes it more challenging.
+
+  Example Class with public, private and protected access:
+  class Example:
+    def __init__(self):
+      self.public_attr = "I am public"
+      self._protected_attr = "I am protected"
+      self.__private_attr = "I am private"
+
+    def public_method(self):
+      return "This is a public method"
+
+    def _protected_method(self):
+      return "This is a protected method"
+
+    def __private_method(self):
+      return "This is a private method"
+
+  # Usage
+  obj = Example()
+
+  print(obj.public_attr)  # Works
+  print(obj._protected_attr)  # Works but should be avoided
+  # print(obj.__private_attr)  # AttributeError
+
+  print(obj.public_method())  # Works
+  print(obj._protected_method())  # Works but should be avoided
+  # print(obj.__private_method())  # AttributeError
+
+  In this example:
+  `public_attr` and `public_method` are accessible from outside the class.
+  `_protected_attr` and `_protected_method` are intended to be protected and should not be accessed directly, though they can be.
+  `__private_attr` and `__private_method` are intended to be private and are name-mangled to prevent easy access from outside the class.
+  There's a caveat over here though. Private attributes and methods are still accessible, but you would have to use the mangled name (e.g., _Example__private_attr) to access them.
+
+Is attribute and method accessor approach of Python a Design Flaw?
+No. Python's approach to access control is intentional and reflects its design philosophy, which prioritizes simplicity, readability and explicitness. This design choice is rooted in several principles:
+  "We're All Adults Here" Philosophy:
+  Python's creator, Guido van Rossum, has often emphasized the philosophy that programmers should be trusted to follow conventions rather than relying on enforced rules. The idea is that developers should respect the intended use of attributes and methods rather than relying on enforced privacy.
+
+  Duck Typing and Emphasis on Behavior:
+  Python emphasizes duck typing and the behavior of objects rather than rigid class hierarchies and access controls. This aligns with Python's broader design philosophy, which values flexibility and adaptability.
+
+  Explicit is Better Than Implicit:
+  Python's design follows the principle that code should be explicit about its intentions. The naming conventions for access control (such as leading underscores) are clear indicators of how attributes and methods are intended to be used, without enforcing strict access restrictions.
+
+While it might seem the lack of enforced access control as a flaw, it's generally seen as a design choice that aligns with Python’s core values. The approach is meant to foster a culture of trust and responsibility among developers rather than imposing strict rules. This philosophy has contributed to Python's popularity and ease of use, making it a widely adopted language for many types of projects.
+
+`pass` keyword:
+The `pass` keyword in Python is essentially a placeholder that does nothing. It’s used when a statement is syntactically required but you don’t want to execute any code. When you use pass in a class’s `__init__` method, it means that the method doesn’t perform any actions—it’s an empty implementation.
+  Example:
+  class FutureClass:
+    def method_to_implement(self):
+      pass  # Will be implemented later
+
+  The situation to use the pass keyword arises when:
+  - A code is to be implemented in the future
+  - Some methods inside a class which explicitly needs to be in place just to meet the requirements to make the code work.
+    Example: In abstract base classes or interfaces, `pass` can be used to define methods that subclasses are expected to implement or `__init__` methods in classes.
