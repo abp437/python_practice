@@ -1,3 +1,5 @@
+PEP 8 is the style guide for coding conventions in Python.
+
 PyPI - Python Package Index is the Python equivalent of Node Package Manager(npm) for NodeJS. It contains the list of all the published packages in Python. The packages listed in PyPI can be considered as Third Party Packages developed by other developers for our usage. Some examples of packages are `numpy`, `pandas`. Any package can be installed, uninstalled using `pip`.
 `pip` is the package installer for Python. It comes built in along with Python 3.
 
@@ -5,6 +7,11 @@ Difference between Packages and Modules:
 'Module' is a file in Python which contains a collection of functions. In Python there's no concept of public and private functions in modules. All functions are public.
 
 'Package' is a collection of modules. All the files in a package are typically placed in a single folder. The identifier of the package is `__init__.py` file from where the package initialization starts. This `__init__.py` file distinguishes a package from a regular directory. It doesn't matter even if the file is empty, it just needs to be there for distinction.
+
+`if __name__ == '__main__':` code meaning:
+The purpose of this code is to provide a way to test or execute certain code only when the script file is run directly via terminal, and not when it is imported into another module. This is useful for code organization and testing.
+Example: `python3 calc_hours.py`
+When we do this the above code in `calc_hours.py` file is invoked, but if it's imported as a script like `import calc_hours` it's not invoked.
 
 OOP:
 It basically answers two questions.
@@ -104,3 +111,51 @@ The `pass` keyword in Python is essentially a placeholder that does nothing. It�
   - A code is to be implemented in the future
   - Some methods inside a class which explicitly needs to be in place just to meet the requirements to make the code work.
     Example: In abstract base classes or interfaces, `pass` can be used to define methods that subclasses are expected to implement or `__init__` methods in classes.
+
+Multiple Inheritance model:
+Unlike Ruby, which only supports single inheritance but allows mixins via modules, Python supports both single and multiple inheritance. Python allows a class to inherit from multiple parent classes. This means you can create a class that inherits attributes and methods from more than one base class.
+
+  Example:
+    class Base1:
+      def method1(self):
+        print("Method from Base1")
+
+    class Base2:
+      def method2(self):
+        print("Method from Base2")
+
+    class Derived(Base1, Base2):
+      pass
+
+    d = Derived()
+    d.method1()  # Output: Method from Base1
+    d.method2()  # Output: Method from Base2
+
+In this example, the `Derived` class inherits from both `Base1` and `Base2`, allowing it to use methods from both base classes. Python’s method resolution order (MRO) determines the order in which base classes are searched when looking for a method. This is an important aspect to consider when using multiple inheritance, as it helps avoid issues related to the "diamond problem" often encountered in multiple inheritance scenarios.
+
+So, to summarize: Python supports multiple inheritance, giving you more flexibility in designing class hierarchies compared to Ruby’s single inheritance model.
+
+Magic/Dunder methods - Built-in method overriding:
+Magic Methods and Dunder(Double Underscore) Methods are just two terms for the same set of special methods that have double underscores before and after their names. They are specifically used to override the default behavior of the built-in methods provided by Python. They are used to define the behavior of objects in various contexts.
+
+Examples:
+  __init__: Constructor method that initializes a new instance of a class.
+  __str__: Returns a human-readable string representation of an object. Equivalent of Ruby's `to_s` method applied on an object.
+  __add__: Defines and overrides the default behavior for the addition operator `+` when used with instances of the class. It requires two objects to be in place for this operator.
+
+  Usage:
+  class MyClass:
+    def __str__(self):
+      return f"MyClass with value {self.value}"
+
+MetaClasses:
+By default we don't have function overlaoding in Python, but by the usage of Python MetaClasses, we can achieve it.
+
+  Metaclasses:
+  Control the creation and behavior of classes themselves. They are a more advanced feature used for customizing class definitions and behavior.
+
+  Abstract Classes:
+  Define an interface with some methods that must be implemented by any concrete subclass. They help establish a contract for subclasses to follow.
+
+  Data Classes:
+  Simplify the creation of classes that are primarily used for storing data, automatically generating common methods to reduce boilerplate code.

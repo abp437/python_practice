@@ -41,4 +41,6 @@ def main():
 
     print(f"For {user_input} days, the number of hours are {calculate_hours(user_input)}\n")
 
-main()
+# The below code is executed automatically when the file is run as an independent script
+if __name__ == '__main__':
+  main()
