@@ -1,0 +1,32 @@
+We need to have virtual environment defined for ourselves in each Python project to keep the dependencies isolated for each project. We do that using `virtualenv` or `venv`. The command to run it is: `virtualenv <env_name>`
+
+We can activate that environment using `source env/bin/activate` in terminal in the Project's Root directory.
+After this we have entered the Virtual Environment. In it we can install all the necessary packages and those packages will be installed inside the `<env_name>` folder like we have the `node_modules` folder in NodeJS apps in the Project's Root directory. We need to activate it every time whenever we need to run our Python project.
+
+Main commands:
+django-admin makemigrations
+django-admin migrate
+django-admin runserver
+django-admin startapp
+django-admin startproject
+
+To create a new project:
+django-admin startproject <project_name>
+
+Now navigate to the project.
+To run migrations:
+python3 manage.py migrate
+
+To run server:
+python3 manage.py runserver
+
+Important files:
+settings.py - It's like config.rb file in Rails
+urls.py - It's like routes.rb file in Rails
+manage.py - Contains all the commands to run migrations and start the server
+
+To create an App within the Project:
+python3 manage.py startapp <app_name>
+
+An App within Python is just a directory which contains files like of views, models, admin, apps, migrations folder, etc.
+View files in Django are gonna fire queries to the DB. Templates are the files which contains the actual HTML content in it.

@@ -159,3 +159,18 @@ By default we don't have function overlaoding in Python, but by the usage of Pyt
 
   Data Classes:
   Simplify the creation of classes that are primarily used for storing data, automatically generating common methods to reduce boilerplate code.
+
+Type Hints & `mypy` package for Type Checking:
+Python by default doesn't enforce strict type checking on variable assignments. Even when we specify the types in code about the variables, return types, etc. Python doesn't enforce strict type checking because of the principle of `We're all adults here.` So, specifying type hints like `bool` in the code is primarily for documentation and tooling purposes. Type hints help developers understand what type of values are expected in variables, function parameters, and return values. So, the below code gives no errors at runtime.
+Sample Code:
+  def main():
+    has_money: bool = 23
+    has_money = 53
+    print(has_money)
+
+  if __name__ == "__main__":
+    main()
+
+But we as developers can enforce Type Checking if we want using the `mypy` package.
+`mypy ./your_source_file.py --check-untyped-defs`.
+It gives errors on it. But it too just gives errors on the console. It also doesn't enforce type checking on run time.
