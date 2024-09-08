@@ -1,0 +1,41 @@
+A Distributed System is a multi machine System.
+Requirements might be:
+  High Availability to avoid single node failure
+  Workloads too big to fit on a single machine
+  Performance reasons for geographically separated users
+
+Challenges for a Distributed System:
+  Communication
+    Managing nodes communicating over the network, which involves:
+    - What if someone leaks the communication
+    - Breakage of the cables during communication or Network outage
+
+  Coordination
+    Dependency of communication between nodes if messages which were supposed to arrive didn't arrive on time or were lost during transmission, thus leading to a dependency management situation
+    - Study distributed algorithms used to implement coordination
+    - Study how to commit and communicate distributed transactions
+
+  Scalability
+    Managing the throughput handling in which there are two approaching to handle peak performance of the application:
+    - Scaling up: Making the machine more powerful to handle loads efficiently
+    - Scaling out: Adding a vast number of machines to handle loads efficiently
+    It is generally done via Functional decomposition(Microservices), duplication(DB Replications), and partitioning(DB Sharding).
+
+  Resiliency
+    A distributed system is resilient when it can continue to do its job even when failures happen. As more machines are added failure rate can also increase because failures are not independent.
+    Deals with managing Fault tolerance and it introduces various resiliency patterns, such as Rate Limiting and Circuit Breakers.
+
+  Operations
+    Deals with managing alerts, DevOps, Logging, CI/CD.
+    - Best practices to test, monitor and operate distributed systems.
+
+Anatomy of a distributed system:
+  It consists of 3 facets:
+  - Phyiscal machines which have to communicater over the netwrk links
+  - Software IPC for communication over protocols
+  - Loosely coupled services which perform independent parts of the business logic and can be scaled and deployed independently
+
+  Service:
+    A service implements one specific part of the overall system’s capabilities.
+    A Service has interfaces for inbound and outbound communications. An "inbound" interface defines the operations that a service offers to its clients. An "outbound" interface defines operations that the service uses to communicate with external services, like data stores, messaging services, and so on.
+    A process running a service is referred to as a server, while a process that sends requests to a server is referred to as a client.

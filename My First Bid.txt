@@ -1,0 +1,24 @@
+Problem Statement:
+  I have a popup where I have a user list. where I have a button for each user who makes an Update in the database with if successful I would like my page not to close the popup and update the popup. so I can see they have updated the page without me being needed. to refresh. so it should download update automatically
+
+My Pitch:
+  Hi Rene F.,
+  As I gather the info provided, it seems that most of the work in the project needs to be done in JavaScript. Two reasons:
+  - There seems to be an issue with synchronizing the Response of the Back End API properly in the popup.
+  - It seems that the Popup is closing right now on an update made by a user in the user list, so we just need to prevent it by JavaScript Event handling.
+
+  So, as you can see I have spotted the problems and have given hints to the solution as well.
+
+  I am a Full Stack Engineer with expertise in delivering great software to my customers. I have worked in Vanilla JS, React JS, jQuery, PHP and MySQL as well. If the need be I can even improvise the User Interface of the Popup to give a seamless experience.
+
+  So, just give me an opportunity to work for you and fix the problems and make the project better.
+  I am available to connect as I am a Full Time Freelancer.
+
+  Just to give you a glimpse of my work in Front End, here's a mini project which I built in Vanilla JS, HTML5, CSS3:
+  Demo Link: https://akshayp-mangospring.github.io/snake-and-ladders/
+  Source Code Link: https://github.com/akshayp-mangospring/snake-and-ladders
+
+  Thanks,
+  Akshay.
+
+Result - Lost the Bid.
